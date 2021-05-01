@@ -1,0 +1,339 @@
+﻿USE [PruebaTalyCap]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Activity]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Activity](
+	[ActividadID] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](max) NULL,
+	[DueDate] [datetime2](7) NOT NULL,
+	[Completed] [bit] NOT NULL,
+ CONSTRAINT [PK_Activity] PRIMARY KEY CLUSTERED 
+(
+	[ActividadID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetRoleClaims](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RoleId] [nvarchar](450) NOT NULL,
+	[ClaimType] [nvarchar](max) NULL,
+	[ClaimValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetRoles](
+	[Id] [nvarchar](450) NOT NULL,
+	[Name] [nvarchar](256) NULL,
+	[NormalizedName] [nvarchar](256) NULL,
+	[ConcurrencyStamp] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetRoles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserClaims](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [nvarchar](450) NOT NULL,
+	[ClaimType] [nvarchar](max) NULL,
+	[ClaimValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserLogins](
+	[LoginProvider] [nvarchar](450) NOT NULL,
+	[ProviderKey] [nvarchar](450) NOT NULL,
+	[ProviderDisplayName] [nvarchar](max) NULL,
+	[UserId] [nvarchar](450) NOT NULL,
+ CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY CLUSTERED 
+(
+	[LoginProvider] ASC,
+	[ProviderKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserRoles](
+	[UserId] [nvarchar](450) NOT NULL,
+	[RoleId] [nvarchar](450) NOT NULL,
+ CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUsers](
+	[Id] [nvarchar](450) NOT NULL,
+	[UserName] [nvarchar](256) NULL,
+	[NormalizedUserName] [nvarchar](256) NULL,
+	[Email] [nvarchar](256) NULL,
+	[NormalizedEmail] [nvarchar](256) NULL,
+	[EmailConfirmed] [bit] NOT NULL,
+	[PasswordHash] [nvarchar](max) NULL,
+	[SecurityStamp] [nvarchar](max) NULL,
+	[ConcurrencyStamp] [nvarchar](max) NULL,
+	[PhoneNumber] [nvarchar](max) NULL,
+	[PhoneNumberConfirmed] [bit] NOT NULL,
+	[TwoFactorEnabled] [bit] NOT NULL,
+	[LockoutEnd] [datetimeoffset](7) NULL,
+	[LockoutEnabled] [bit] NOT NULL,
+	[AccessFailedCount] [int] NOT NULL,
+	[NombreCompleto] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserTokens](
+	[UserId] [nvarchar](450) NOT NULL,
+	[LoginProvider] [nvarchar](450) NOT NULL,
+	[Name] [nvarchar](450) NOT NULL,
+	[Value] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[LoginProvider] ASC,
+	[Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Author]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Author](
+	[AuthorID] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](max) NULL,
+	[LastName] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Author] PRIMARY KEY CLUSTERED 
+(
+	[AuthorID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AuthorBook]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AuthorBook](
+	[BookID] [int] NOT NULL,
+	[AuthorID] [int] NOT NULL,
+ CONSTRAINT [PK_AuthorBook] PRIMARY KEY CLUSTERED 
+(
+	[BookID] ASC,
+	[AuthorID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Book]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Book](
+	[BookID] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[PageCount] [int] NOT NULL,
+	[Excerpt] [nvarchar](max) NULL,
+	[PublishDate] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Book] PRIMARY KEY CLUSTERED 
+(
+	[BookID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CoverPhoto]    Script Date: 01/05/2021 06:47:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CoverPhoto](
+	[CoverID] [int] IDENTITY(1,1) NOT NULL,
+	[BookID] [int] NOT NULL,
+	[Url] [nvarchar](max) NULL,
+ CONSTRAINT [PK_CoverPhoto] PRIMARY KEY CLUSTERED 
+(
+	[CoverID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20210429173903_Version.0.0.1', N'3.1.2')
+GO
+SET IDENTITY_INSERT [dbo].[Activity] ON 
+GO
+INSERT [dbo].[Activity] ([ActividadID], [Title], [DueDate], [Completed]) VALUES (2, N'data 4', CAST(N'2021-05-09T05:00:00.0000000' AS DateTime2), 1)
+GO
+INSERT [dbo].[Activity] ([ActividadID], [Title], [DueDate], [Completed]) VALUES (4, N'Prueba  de actividad  update', CAST(N'2021-05-01T00:00:00.0000000' AS DateTime2), 1)
+GO
+INSERT [dbo].[Activity] ([ActividadID], [Title], [DueDate], [Completed]) VALUES (11, N'Organizar cosas', CAST(N'2021-04-30T23:35:58.5030000' AS DateTime2), 1)
+GO
+INSERT [dbo].[Activity] ([ActividadID], [Title], [DueDate], [Completed]) VALUES (12, N'Jugar Play 5', CAST(N'2021-04-29T05:00:00.0000000' AS DateTime2), 1)
+GO
+SET IDENTITY_INSERT [dbo].[Activity] OFF
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [NombreCompleto]) VALUES (N'08e9e06b-f026-4ffa-98d0-96dc571a4a3b', N'nathanbelt23@gmail.com', N'NATHANBELT23@GMAIL.COM', N'nathanbelt23@gmail.com', N'NATHANBELT23@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEF9XOAf67aD1vlMuSGBL0JqBO/4wOAqV3eFVEA3oaJesNvcsoQuFU1KRyMg5U6DNRg==', N'U5WPIWEAL72GC2EXUBUO3HJ74BOHM34G', N'07ebd371-9a9a-4fd2-a57a-c342e3cb357c', NULL, 0, 0, NULL, 1, 0, N'Yonathan Beltran Romero')
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [NombreCompleto]) VALUES (N'd6a8a408-05f3-4b2e-b311-790e812f76a0', N'desarrollador@gmail.com', N'DESARROLLADOR@GMAIL.COM', N'desarrollador@gmail.com', N'DESARROLLADOR@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAENDVLjlXFD+qhs5lz8On1o0q5vnnUrFBKkZZyHKWLJXUJzObIehDNAtLyCUsuStS4g==', N'DFGC5XFECPPBBYCVCQH4Q3EK3P2UHLI3', N'e02f1e55-2e11-46c5-976a-df2640bf62b0', NULL, 0, 0, NULL, 1, 0, N'Yonathan Beltran Romero')
+GO
+SET IDENTITY_INSERT [dbo].[Author] ON 
+GO
+INSERT [dbo].[Author] ([AuthorID], [FirstName], [LastName]) VALUES (1, N'Gabriel 2', N'Garcia Marquez')
+GO
+INSERT [dbo].[Author] ([AuthorID], [FirstName], [LastName]) VALUES (2, N'Juan Camilo', N'Duarte s')
+GO
+INSERT [dbo].[Author] ([AuthorID], [FirstName], [LastName]) VALUES (4, N'Dario', N'Poveda')
+GO
+INSERT [dbo].[Author] ([AuthorID], [FirstName], [LastName]) VALUES (5, N'Noelia', N'Fiallo')
+GO
+INSERT [dbo].[Author] ([AuthorID], [FirstName], [LastName]) VALUES (6, N'Fernando', N'Gaitan')
+GO
+SET IDENTITY_INSERT [dbo].[Author] OFF
+GO
+INSERT [dbo].[AuthorBook] ([BookID], [AuthorID]) VALUES (2, 1)
+GO
+INSERT [dbo].[AuthorBook] ([BookID], [AuthorID]) VALUES (3, 2)
+GO
+INSERT [dbo].[AuthorBook] ([BookID], [AuthorID]) VALUES (5, 4)
+GO
+INSERT [dbo].[AuthorBook] ([BookID], [AuthorID]) VALUES (6, 6)
+GO
+SET IDENTITY_INSERT [dbo].[Book] ON 
+GO
+INSERT [dbo].[Book] ([BookID], [Title], [Description], [PageCount], [Excerpt], [PublishDate]) VALUES (2, N'Algebra', N'none', 1500, N'122', CAST(N'2021-01-03T05:00:00.0000000' AS DateTime2))
+GO
+INSERT [dbo].[Book] ([BookID], [Title], [Description], [PageCount], [Excerpt], [PublishDate]) VALUES (3, N'Manual del buen vestir', N'none', 1500, N'122', CAST(N'2021-05-01T00:00:00.0000000' AS DateTime2))
+GO
+INSERT [dbo].[Book] ([BookID], [Title], [Description], [PageCount], [Excerpt], [PublishDate]) VALUES (5, N'Cien años de soledad', N'none', 1500, N'122', CAST(N'2021-05-01T00:00:00.0000000' AS DateTime2))
+GO
+INSERT [dbo].[Book] ([BookID], [Title], [Description], [PageCount], [Excerpt], [PublishDate]) VALUES (6, N'Data 1', N'12132', 100, N'12323', CAST(N'2021-05-01T00:00:00.0000000' AS DateTime2))
+GO
+SET IDENTITY_INSERT [dbo].[Book] OFF
+GO
+SET IDENTITY_INSERT [dbo].[CoverPhoto] ON 
+GO
+INSERT [dbo].[CoverPhoto] ([CoverID], [BookID], [Url]) VALUES (13, 3, N'2a640153-5dfc-440f-b8e0-49bb8ec06c36.jpg')
+GO
+INSERT [dbo].[CoverPhoto] ([CoverID], [BookID], [Url]) VALUES (14, 5, N'e052cab8-6ee5-4527-8441-ffd113794db8.jpg')
+GO
+INSERT [dbo].[CoverPhoto] ([CoverID], [BookID], [Url]) VALUES (15, 6, N'6d719150-7629-4572-b26a-ee9d93c0d814.jpg')
+GO
+INSERT [dbo].[CoverPhoto] ([CoverID], [BookID], [Url]) VALUES (16, 2, N'2257c3a2-e63e-4190-aa2f-a8cac050cab5.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[CoverPhoto] OFF
+GO
+ALTER TABLE [dbo].[AspNetRoleClaims]  WITH CHECK ADD  CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[AspNetRoles] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetRoleClaims] CHECK CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId]
+GO
+ALTER TABLE [dbo].[AspNetUserClaims]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserClaims] CHECK CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AspNetUserLogins]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserLogins] CHECK CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[AspNetRoles] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId]
+GO
+ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AspNetUserTokens]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserTokens] CHECK CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AuthorBook]  WITH CHECK ADD  CONSTRAINT [FK_AuthorBook_Author_AuthorID] FOREIGN KEY([AuthorID])
+REFERENCES [dbo].[Author] ([AuthorID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AuthorBook] CHECK CONSTRAINT [FK_AuthorBook_Author_AuthorID]
+GO
+ALTER TABLE [dbo].[AuthorBook]  WITH CHECK ADD  CONSTRAINT [FK_AuthorBook_Book_BookID] FOREIGN KEY([BookID])
+REFERENCES [dbo].[Book] ([BookID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AuthorBook] CHECK CONSTRAINT [FK_AuthorBook_Book_BookID]
+GO
+ALTER TABLE [dbo].[CoverPhoto]  WITH CHECK ADD  CONSTRAINT [FK_CoverPhoto_Book_BookID] FOREIGN KEY([BookID])
+REFERENCES [dbo].[Book] ([BookID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CoverPhoto] CHECK CONSTRAINT [FK_CoverPhoto_Book_BookID]
+GO
